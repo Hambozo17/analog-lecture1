@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>المحاضرة 1 — فيزياء أشباه الموصلات | ECE314</title>
+  <meta name="description" content="ملخص تفاعلي شامل بالعربي للمحاضرة الأولى - فيزياء أشباه الموصلات">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<button class="menu-toggle" aria-label="القائمة">☰</button>
+<div class="overlay"></div>
+
+<!-- ═══ SIDEBAR ═══ -->
+<aside class="sidebar">
+  <div class="sidebar-header">
+    <h2>⚡ ECE314 Analog</h2>
+    <p>Lecture 1 — Semiconductor Physics</p>
+  </div>
+  <!-- Global Language Toggle -->
+  <div class="global-lang-toggle">
+    <span>اللغة:</span>
+    <div class="lang-switch">
+      <span class="lang-label ar-label">ع</span>
+      <span class="lang-label en-label">EN</span>
+    </div>
+  </div>
+  <div class="sidebar-progress">
+    <div class="progress-text"><span>التقدم</span><span class="progress-pct">0%</span></div>
+    <div class="progress-bar"><div class="progress-fill"></div></div>
+  </div>
+  <nav class="sidebar-nav">
+    <div class="nav-item active" data-target="sec1"><span class="nav-num">1</span>أشباه الموصلات</div>
+    <div class="nav-item" data-target="sec2"><span class="nav-num">2</span>السيليكون</div>
+    <div class="nav-item" data-target="sec3"><span class="nav-num">3</span>إلكترون وفجوة</div>
+    <div class="nav-item" data-target="sec4"><span class="nav-num">4</span>طاقة الفجوة</div>
+    <div class="nav-item" data-target="sec5"><span class="nav-num">5</span>التطعيم ⭐</div>
+    <div class="nav-item" data-target="sec6"><span class="nav-num">6</span>كثافة n × p</div>
+    <div class="nav-item" data-target="sec7"><span class="nav-num">7</span>الانجراف</div>
+    <div class="nav-item" data-target="sec8"><span class="nav-num">8</span>الانتشار</div>
+    <div class="nav-item" data-target="sec9"><span class="nav-num">9</span>علاقة أينشتاين</div>
+    <div class="nav-item" data-target="sec10"><span class="nav-num">10</span>وصلة PN ⭐</div>
+    <div class="nav-item" data-target="sec11"><span class="nav-num">11</span>مناطق العمل</div>
+    <div class="nav-item" data-target="sec12"><span class="nav-num">12</span>الانحياز العكسي</div>
+    <div class="nav-item" data-target="sec13"><span class="nav-num">13</span>الانحياز الأمامي</div>
+    <div class="nav-item" data-target="sec14"><span class="nav-num">14</span>منحنى IV</div>
+    <div class="nav-item" data-target="sec15"><span class="nav-num">15</span>نموذج الجهد الثابت</div>
+    <div class="nav-item" data-target="sec-summary"><span class="nav-num">📝</span>ملخص + اختبار</div>
+  </nav>
+</aside>
+
+<!-- ═══ MAIN ═══ -->
+<main class="main">
+
+<div class="hero">
+  <h1>📘 المحاضرة 1 — فيزياء أشباه الموصلات</h1>
+  <p>مراجعة شاملة مع رسومات ومعادلات وأسئلة تفاعلية — اضغط 🔄 على أي قسم للتبديل بين العربي والإنجليزي.</p>
+  <div class="hero-chips">
+    <span class="chip">ECE314 Analog Circuits</span>
+    <span class="chip">Chapter 2</span>
+    <span class="chip">Dr. Rania F. Ahmed</span>
+    <span class="chip">🔄 AR ↔ EN per section</span>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════ -->
+<!-- SECTION 1 -->
+<!-- ══════════════════════════════════════════ -->
+<div class="section" id="sec1">
+  <div class="section-header">
+    <div class="section-icon icon-purple">🔬</div>
+    <h2>1. ما هي أشباه الموصلات؟</h2>
+    <button class="section-lang-btn"><span class="swap-icon">🔄</span><span class="lang-text">EN</span></button>
+    <span class="toggle-arrow">▼</span>
+  </div>
+  <div class="section-body">
+    <!-- ARABIC -->
+    <div class="lang-ar">
+      <div class="card"><h3>الفكرة الأساسية</h3>
+        <p><strong>موصلات</strong> (نحاس — بتوصل كهرباء) | <strong>عوازل</strong> (بلاستيك — مش بتوصل) | <strong>أشباه الموصلات</strong> في النص — توصيلها يتغير حسب الحرارة أو الشوائب.</p>
+        <div class="callout info">💡 أشباه الموصلات = قلب كل الإلكترونيات. <strong>وصلة PN</strong> هي أبسط وأهم عنصر.</div>
+      </div>
+      <div class="card"><h3>العناصر المهمة</h3>
+        <div class="table-wrap"><table><thead><tr><th>المجموعة</th><th>إلكترونات تكافؤ</th><th>مثال</th><th>الدور</th></tr></thead><tbody>
+          <tr><td>III</td><td>3</td><td>بورون (B)</td><td>Acceptor → P-type</td></tr>
+          <tr><td>IV</td><td>4</td><td><strong>سيليكون (Si)</strong></td><td>شبه الموصل الأساسي</td></tr>
+          <tr><td>V</td><td>5</td><td>فسفور (P)</td><td>Donor → N-type</td></tr>
+        </tbody></table></div>
+      </div>
+    </div>
+    <!-- ENGLISH -->
+    <div class="lang-en">
+      <div class="card"><h3>Core Concept</h3>
+        <p><strong>Conductors</strong> (copper — conduct electricity) | <strong>Insulators</strong> (plastic — don't conduct) | <strong>Semiconductors</strong> are in between — their conductivity changes with temperature or added impurities.</p>
+        <div class="callout info">💡 Semiconductors = the heart of all electronics. The <strong>PN junction</strong> is the most fundamental device.</div>
+      </div>
+      <div class="card"><h3>Important Elements</h3>
+        <div class="table-wrap"><table><thead><tr><th>Group</th><th>Valence e⁻</th><th>Example</th><th>Role</th></tr></thead><tbody>
+          <tr><td>III</td><td>3</td><td>Boron (B)</td><td>Acceptor → P-type</td></tr>
+          <tr><td>IV</td><td>4</td><td><strong>Silicon (Si)</strong></td><td>Primary semiconductor</td></tr>
+          <tr><td>V</td><td>5</td><td>Phosphorus (P)</td><td>Donor → N-type</td></tr>
+        </tbody></table></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SECTION 2 -->
+<div class="section" id="sec2">
+  <div class="section-header"><div class="section-icon icon-cyan">⚛️</div><h2>2. السيليكون</h2><button class="section-lang-btn"><span class="swap-icon">🔄</span><span class="lang-text">EN</span></button><span class="toggle-arrow">▼</span></div>
+  <div class="section-body">
+    <div class="lang-ar">
+      <div class="card"><h3>الخصائص</h3><ul><li><strong>4 إلكترونات تكافؤ</strong> — 4 روابط تساهمية مع الجيران</li><li>كل رابطة = إلكترونين مشتركين</li></ul></div>
+      <div class="card"><h3>📊 الروابط التساهمية</h3><div class="diagram-container" id="diagram-si-bonds"></div><p class="diagram-label">كل دائرة زرقاء = إلكترون مشترك</p></div>
+      <div class="card"><h3>تأثير الحرارة 🌡️</h3><p>حرارة أعلى ← إلكترونات تتحرر ← <strong>إلكترون حر + فجوة</strong></p><div class="callout success">🔑 حرارة ↑ ← إلكترونات حرة ↑ ← توصيلية ↑</div></div>
+    </div>
+    <div class="lang-en">
+      <div class="card"><h3>Properties</h3><ul><li><strong>4 valence electrons</strong> — forms 4 covalent bonds with neighbors</li><li>Each bond = 2 shared electrons</li></ul></div>
+      <div class="card"><h3>📊 Covalent Bonds</h3><div class="diagram-container" id="diagram-si-bonds-en"></div><p class="diagram-label">Each blue circle = shared electron in covalent bond</p></div>
+      <div class="card"><h3>Temperature Effect 🌡️</h3><p>Higher temperature → electrons gain energy → break free → <strong>free electron + hole</strong></p><div class="callout success">🔑 Temperature ↑ → free electrons ↑ → conductivity ↑</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- SECTION 3 -->
+<div class="section" id="sec3">
+  <div class="section-header"><div class="section-icon icon-pink">🔄</div><h2>3. إلكترون وفجوة</h2><button class="section-lang-btn"><span class="swap-icon">🔄</span><span class="lang-text">EN</span></button><span class="toggle-arrow">▼</span></div>
+  <div class="section-body">
+    <div class="lang-ar">
+      <div class="card"><h3>الآلية</h3><ol><li><strong>Generation:</strong> إلكترون يتحرر ← إلكترون حر + فجوة</li><li><strong>Recombination:</strong> إلكترون يملأ فجوة</li><li>الفجوة تتحرك كأنها <strong>شحنة موجبة</strong></li></ol>
+        <div class="callout info">📌 نوعين من حاملات الشحنة: <strong>إلكترونات (−)</strong> و <strong>فجوات (+)</strong></div></div>
+      <div class="flashcard"><div class="flashcard-inner"><div class="flashcard-front"><h4>❓ الفرق بين Generation و Recombination؟</h4><p>(اضغط للإجابة)</p></div><div class="flashcard-back"><p><strong>Generation:</strong> إلكترون يتحرر → e⁻ + h⁺<br><strong>Recombination:</strong> e⁻ يملأ h⁺ → الاتنين يختفوا</p></div></div></div>
+    </div>
+    <div class="lang-en">
+      <div class="card"><h3>Mechanism</h3><ol><li><strong>Generation:</strong> Electron breaks free → free electron + hole</li><li><strong>Recombination:</strong> Free electron fills a hole</li><li>Holes behave as <strong>positive charges</strong></li></ol>
+        <div class="callout info">📌 Two types of charge carriers: <strong>Electrons (−)</strong> and <strong>Holes (+)</strong></div></div>
+      <div class="flashcard"><div class="flashcard-inner"><div class="flashcard-front"><h4>❓ Difference between Generation & Recombination?</h4><p>(click to flip)</p></div><div class="flashcard-back"><p><strong>Generation:</strong> Electron breaks free → e⁻ + h⁺<br><strong>Recombination:</strong> e⁻ fills h⁺ → both disappear</p></div></div></div>
+    </div>
+  </div>
+</div>
+
+<!-- SECTION 4 -->
+<div class="section" id="sec4">
+  <div class="section-header"><div class="section-icon icon-yellow">📊</div><h2>4. طاقة الفجوة (Bandgap)</h2><button class="section-lang-btn"><span class="swap-icon">🔄</span><span class="lang-text">EN</span></button><span class="toggle-arrow">▼</span></div>
+  <div class="section-body">
+    <div class="lang-ar">
+      <div class="card"><h3>طاقة الفجوة Eg</h3><p>الطاقة المطلوبة عشان الإلكترون يتحرر من الرابطة.</p>
+        <div class="math-block" data-formula="n_i = B \cdot T^{3/2} \cdot e^{\frac{-E_g}{2kT}}"></div>
+        <div class="callout warning">⚠️ علاقة أُسّية: <span class="math-inline" data-formula="E_g"></span> أكبر ← e⁻ أقل | T أعلى ← e⁻ أكتر</div></div>
+      <div class="card"><h3>مقارنة المواد</h3><div class="table-wrap"><table><thead><tr><th>المادة</th><th>Eg (eV)</th><th>ملاحظة</th></tr></thead><tbody><tr><td>Si</td><td>1.12</td><td>الأكثر استخداماً</td></tr><tr><td>Ge</td><td>0.66</td><td>أسهل تحرير</td></tr><tr><td>GaAs</td><td>1.42</td><td>ترددات عالية</td></tr></tbody></table></div></div>
+    </div>
+    <div class="lang-en">
+      <div class="card"><h3>Bandgap Energy Eg</h3><p>The energy needed to free an electron from its covalent bond.</p>
+        <div class="math-block" data-formula="n_i = B \cdot T^{3/2} \cdot e^{\frac{-E_g}{2kT}}"></div>
+        <div class="callout warning">⚠️ Exponential relation: higher <span class="math-inline" data-formula="E_g"></span> → fewer free e⁻ | higher T → more free e⁻</div></div>
+      <div class="card"><h3>Material Comparison</h3><div class="table-wrap"><table><thead><tr><th>Material</th><th>Eg (eV)</th><th>Note</th></tr></thead><tbody><tr><td>Si</td><td>1.12</td><td>Most widely used</td></tr><tr><td>Ge</td><td>0.66</td><td>Easier to free e⁻</td></tr><tr><td>GaAs</td><td>1.42</td><td>High frequency apps</td></tr></tbody></table></div></div>
+    </div>
+  </div>
+</div>
+
+<!-- SECTION 5 — DOPING -->
+<div class="section" id="sec5">
+  <div class="section-header"><div class="section-icon icon-green">⭐</div><h2>5. التطعيم (Doping)</h2><button class="section-lang-btn"><span class="swap-icon">🔄</span><span class="lang-text">EN</span></button><span class="toggle-arrow">▼</span></div>
+  <div class="section-body">
+    <div class="lang-ar">
+      <div class="card"><h3>N-type — فسفور (5e)</h3><div class="diagram-container" id="diagram-n-type"></div><p>الإلكترون الخامس <strong>حر!</strong> الشائبة = <strong>Donor (مانح)</strong></p></div>
+      <div class="card"><h3>P-type — بورون (3e)</h3><div class="diagram-container" id="diagram-p-type"></div><p>الرابطة الرابعة ناقصها → <strong>فجوة!</strong> الشائبة = <strong>Acceptor (مستقبل)</strong></p></div>
+      <div class="card"><h3>📋 مقارنة</h3><div class="table-wrap"><table><thead><tr><th></th><th>N-type</th><th>P-type</th></tr></thead><tbody><tr><td>العنصر</td><td>فسفور (V)</td><td>بورون (III)</td></tr><tr><td>الشائبة</td><td>Donor</td><td>Acceptor</td></tr><tr><td>Majority</td><td>إلكترونات</td><td>فجوات</td></tr><tr><td>Minority</td><td>فجوات</td><td>إلكترونات</td></tr></tbody></table></div></div>
+      <div class="quiz-box" data-explanation="الفسفور (5e) — الخامس حر، فالإلكترونات هي Majority."><h4>🧠 اختبر نفسك:</h4><p style="color:var(--text-secondary);font-size:13px;margin-bottom:10px;">N-type: إيه الـ Majority Carriers؟</p><button class="quiz-option" data-correct="true">إلكترونات</button><button class="quiz-option">فجوات</button><button class="quiz-option">أيونات موجبة</button><div class="quiz-feedback"></div></div>
+    </div>
+    <div class="lang-en">
+      <div class="card"><h3>N-type — Phosphorus (5e)</h3><div class="diagram-container" id="diagram-n-type-en"></div><p>The 5th electron is <strong>free!</strong> Impurity = <strong>Donor</strong></p></div>
+      <div class="card"><h3>P-type — Boron (3e)</h3><div class="diagram-container" id="diagram-p-type-en"></div><p>The 4th bond is missing → <strong>hole!</strong> Impurity = <strong>Acceptor</strong></p></div>
+      <div class="card"><h3>📋 Comparison</h3><div class="table-wrap"><table><thead><tr><th></th><th>N-type</th><th>P-type</th></tr></thead><tbody><tr><td>Element</td><td>Phosphorus (V)</td><td>Boron (III)</td></tr><tr><td>Impurity</td><td>Donor</td><td>Acceptor</td></tr><tr><td>Majority</td><td>Electrons</td><td>Holes</td></tr><tr><td>Minority</td><td>Holes</td><td>Electrons</td></tr></tbody></table></div></div>
+      <div class="quiz-box" data-explanation="Phosphorus has 5e — the 5th is free, so electrons are the majority carriers."><h4>🧠 Test Yourself:</h4><p style="color:var(--text-secondary);font-size:13px;margin-bottom:10px;">In N-type, what are the Majority Carriers?</p><button class="quiz-option" data-correct="true">Electrons</button><button class="quiz-option">Holes</button><button class="quiz-option">Positive ions</button><div class="quiz-feedback"></div></div>
+    </div>
+  </div>
+</div>
+
+<!-- SECTION 6 -->
+<div class="section" id="sec6">
+  <div class="section-header"><div class="section-icon icon-red">🧮</div><h2>6. كثافة n × p</h2><button class="section-lang-btn"><span class="swap-icon">🔄</span><span class="lang-text">EN</span></button><span class="toggle-arrow">▼</span></div>
+  <div class="section-body">
+    <div class="lang-ar">
+      <div class="card"><h3>القانون الذهبي ⭐</h3><div class="math-block" data-formula="n \times p = n_i^2"></div><p>ثابت دايماً مهما كان التطعيم!</p><div class="callout success">زودنا e⁻ (N-type) → h⁺ بتقل تلقائياً والعكس.</div></div>
+      <div class="card"><h3>التطبيق</h3><div class="tabs"><button class="tab-btn active" data-tab="tab-n">N-type</button><button class="tab-btn" data-tab="tab-p">P-type</button></div><div class="tab-content active" id="tab-n"><div class="math-block" data-formula="n \approx N_D \;,\; p = \frac{n_i^2}{N_D}"></div></div><div class="tab-content" id="tab-p"><div class="math-block" data-formula="p \approx N_A \;,\; n = \frac{n_i^2}{N_A}"></div></div></div>
+    </div>
+    <div class="lang-en">
+      <div class="card"><h3>Golden Rule ⭐</h3><div class="math-block" data-formula="n \times p = n_i^2"></div><p>Always constant regardless of doping!</p><div class="callout success">Increase e⁻ (N-type) → h⁺ decrease automatically, and vice versa.</div></div>
+      <div class="card"><h3>Application</h3><div class="tabs"><button class="tab-btn active" data-tab="tab-n-en">N-type</button><button class="tab-btn" data-tab="tab-p-en">P-type</button></div><div class="tab-content active" id="tab-n-en"><div class="math-block" data-formula="n \approx N_D \;,\; p = \frac{n_i^2}{N_D}"></div></div><div class="tab-content" id="tab-p-en"><div class="math-block" data-formula="p \approx N_A \;,\; n = \frac{n_i^2}{N_A}"></div></div></div>
+    </div>
+  </div>
+</div>
+
+<!-- SECTION 7 — DRIFT -->
+<div class="section" id="sec7">
+  <div class="section-header"><div class="section-icon icon-purple">⚡</div><h2>7. الانجراف (Drift)</h2><button class="section-lang-btn"><span class="swap-icon">🔄</span><span class="lang-text">EN</span></button><span class="toggle-arrow">▼</span></div>
+  <div class="section-body">
+    <div class="lang-ar">
+      <div class="card"><h3>التعريف</h3><p>حركة حاملات الشحنة بسبب <strong>مجال كهربائي خارجي</strong>.</p><div class="callout info">e⁻ عكس المجال ⬅️ | h⁺ مع المجال ➡️</div></div>
+      <div class="card"><h3>المعادلات</h3><div class="math-block" data-formula="v_d = \mu \cdot E"></div><div class="math-block" data-formula="J_{drift} = q(n\mu_n + p\mu_p) \cdot E"></div></div>
+    </div>
+    <div class="lang-en">
+      <div class="card"><h3>Definition</h3><p>Movement of charge carriers due to an <strong>external electric field</strong>.</p><div class="callout info">e⁻ move opposite to E ⬅️ | h⁺ move with E ➡️</div></div>
+      <div class="card"><h3>Equations</h3><p><strong>Drift velocity:</strong></p><div class="math-block" data-formula="v_d = \mu \cdot E"></div><p><strong>Drift current density:</strong></p><div class="math-block" data-formula="J_{drift} = q(n\mu_n + p\mu_p) \cdot E"></div><p><span class="math-inline" data-formula="\mu"></span> = mobility, <span class="math-inline" data-formula="q = 1.6\times10^{-19}"></span> C</p></div>
+    </div>
+  </div>
+</div>
+
+<!-- SECTION 8 — DIFFUSION -->
+<div class="section" id="sec8">
+  <div class="section-header"><div class="section-icon icon-cyan">🌊</div><h2>8. الانتشار (Diffusion)</h2><button class="section-lang-btn"><span class="swap-icon">🔄</span><span class="lang-text">EN</span></button><span class="toggle-arrow">▼</span></div>
+  <div class="section-body">
+    <div class="lang-ar">
+      <div class="card"><h3>الفكرة</h3><p>حركة من <strong>تركيز عالي → منخفض</strong>. مش محتاجة مجال كهربائي!</p><div class="callout tip">🎨 تخيّل حبر في مية — بينتشر لوحده!</div></div>
+      <div class="card"><h3>المعادلة</h3><div class="math-block" data-formula="J_{diff} = qD_n\frac{dn}{dx} - qD_p\frac{dp}{dx}"></div></div>
+      <div class="card"><h3>Drift vs Diffusion</h3><div class="table-wrap"><table><thead><tr><th></th><th>Drift</th><th>Diffusion</th></tr></thead><tbody><tr><td>السبب</td><td>مجال كهربائي</td><td>تدرج تركيز</td></tr><tr><td>المعادلة</td><td><span class="math-inline" data-formula="J=qn\mu E"></span></td><td><span class="math-inline" data-formula="J=qD\frac{dn}{dx}"></span></td></tr></tbody></table></div></div>
+    </div>
+    <div class="lang-en">
+      <div class="card"><h3>Concept</h3><p>Movement from <strong>high concentration → low concentration</strong>. No electric field needed!</p><div class="callout tip">🎨 Like ink spreading in water — it diffuses on its own!</div></div>
+      <div class="card"><h3>Equation</h3><div class="math-block" data-formula="J_{diff} = qD_n\frac{dn}{dx} - qD_p\frac{dp}{dx}"></div></div>
+      <div class="card"><h3>Drift vs Diffusion</h3><div class="table-wrap"><table><thead><tr><th></th><th>Drift</th><th>Diffusion</th></tr></thead><tbody><tr><td>Cause</td><td>Electric field (E)</td><td>Concentration gradient</td></tr><tr><td>Equation</td><td><span class="math-inline" data-formula="J=qn\mu E"></span></td><td><span class="math-inline" data-formula="J=qD\frac{dn}{dx}"></span></td></tr></tbody></table></div></div>
+    </div>
+  </div>
+</div>
+
+<!-- SECTION 9 -->
+<div class="section" id="sec9">
+  <div class="section-header"><div class="section-icon icon-yellow">🔗</div><h2>9. علاقة أينشتاين</h2><button class="section-lang-btn"><span class="swap-icon">🔄</span><span class="lang-text">EN</span></button><span class="toggle-arrow">▼</span></div>
+  <div class="section-body">
+    <div class="lang-ar">
+      <div class="card"><div class="math-block" data-formula="\frac{D}{\mu} = \frac{kT}{q} = V_T \approx 26\text{ mV (@ 300K)}"></div><div class="callout info">بتربط D بـ μ — لو عرفت واحدة تحسب التانية!</div></div>
+    </div>
+    <div class="lang-en">
+      <div class="card"><div class="math-block" data-formula="\frac{D}{\mu} = \frac{kT}{q} = V_T \approx 26\text{ mV (@ 300K)}"></div><div class="callout info">Links diffusion coefficient D to mobility μ — knowing one gives you the other!</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- SECTION 10 — PN JUNCTION -->
+<div class="section" id="sec10">
+  <div class="section-header"><div class="section-icon icon-pink">⭐</div><h2>10. وصلة PN (الدايود)</h2><button class="section-lang-btn"><span class="swap-icon">🔄</span><span class="lang-text">EN</span></button><span class="toggle-arrow">▼</span></div>
+  <div class="section-body">
+    <div class="lang-ar">
+      <div class="card"><h3>📊 وصلة PN</h3><div class="diagram-container" id="diagram-pn-junction"></div></div>
+      <div class="card"><h3>الخطوات</h3><ol><li><strong>انتشار:</strong> e⁻ من N → P، h⁺ من P → N</li><li><strong>منطقة النضوب:</strong> أيونات ثابتة ← منطقة خالية</li><li><strong>مجال كهربائي:</strong> من N لـ P ← تيار انجراف</li><li><strong>اتزان:</strong> drift = diffusion ← <strong>I = 0</strong></li></ol></div>
+      <div class="card"><h3>الجهد المدمج</h3><div class="math-block" data-formula="V_0 = V_T \ln\left(\frac{N_A \cdot N_D}{n_i^2}\right)"></div><div class="callout success">🔋 Si @ room temp: <strong>V₀ ≈ 0.7V</strong></div></div>
+    </div>
+    <div class="lang-en">
+      <div class="card"><h3>📊 PN Junction</h3><div class="diagram-container" id="diagram-pn-junction-en"></div></div>
+      <div class="card"><h3>Steps at the Junction</h3><ol><li><strong>Diffusion:</strong> e⁻ from N → P, h⁺ from P → N</li><li><strong>Depletion Region:</strong> Fixed ions → carrier-free zone</li><li><strong>Electric Field:</strong> From N to P → drift current</li><li><strong>Equilibrium:</strong> drift = diffusion → <strong>I = 0</strong></li></ol></div>
+      <div class="card"><h3>Built-in Potential</h3><div class="math-block" data-formula="V_0 = V_T \ln\left(\frac{N_A \cdot N_D}{n_i^2}\right)"></div><div class="callout success">🔋 Si @ room temp: <strong>V₀ ≈ 0.7V</strong></div></div>
+    </div>
+  </div>
+</div>
+
+<!-- SECTION 11 -->
+<div class="section" id="sec11">
+  <div class="section-header"><div class="section-icon icon-green">🔀</div><h2>11. مناطق عمل الدايود</h2><button class="section-lang-btn"><span class="swap-icon">🔄</span><span class="lang-text">EN</span></button><span class="toggle-arrow">▼</span></div>
+  <div class="section-body">
+    <div class="lang-ar">
+      <div class="card"><div class="summary-grid"><div class="summary-item"><div class="label">⚖️ اتزان</div><div class="value">V=0, I=0</div></div><div class="summary-item"><div class="label">⬅️ عكسي</div><div class="value">V&lt;0, I≈0</div></div><div class="summary-item"><div class="label">➡️ أمامي</div><div class="value">V&gt;0, I كبير</div></div></div></div>
+    </div>
+    <div class="lang-en">
+      <div class="card"><div class="summary-grid"><div class="summary-item"><div class="label">⚖️ Equilibrium</div><div class="value">V=0, I=0</div></div><div class="summary-item"><div class="label">⬅️ Reverse Bias</div><div class="value">V&lt;0, I≈0</div></div><div class="summary-item"><div class="label">➡️ Forward Bias</div><div class="value">V&gt;0, large I</div></div></div></div>
+    </div>
+  </div>
+</div>
+
+<!-- SECTION 12 — REVERSE -->
+<div class="section" id="sec12">
+  <div class="section-header"><div class="section-icon icon-red">🚫</div><h2>12. الانحياز العكسي</h2><button class="section-lang-btn"><span class="swap-icon">🔄</span><span class="lang-text">EN</span></button><span class="toggle-arrow">▼</span></div>
+  <div class="section-body">
+    <div class="lang-ar">
+      <div class="card"><h3>📊 الانحياز العكسي</h3><div class="diagram-container" id="diagram-reverse-bias"></div><p>V_N > V_P ← منطقة النضوب <strong>بتتوسع</strong> ← I ≈ 0</p></div>
+      <div class="card"><h3>مكثف متغير</h3><div class="math-block" data-formula="C_j = \frac{C_{j0}}{(1 + V_R/V_0)^m}"></div><p>VR ↑ → العرض ↑ → السعة ↓</p></div>
+      <div class="card"><h3>🎛️ VCO</h3><div class="math-block" data-formula="f = \frac{1}{2\pi\sqrt{LC}}"></div><p>نغير VR → C تتغير → التردد f يتغير!</p></div>
+    </div>
+    <div class="lang-en">
+      <div class="card"><h3>📊 Reverse Bias</h3><div class="diagram-container" id="diagram-reverse-bias-en"></div><p>V_N > V_P → depletion region <strong>widens</strong> → I ≈ 0</p></div>
+      <div class="card"><h3>Voltage-Dependent Capacitor</h3><div class="math-block" data-formula="C_j = \frac{C_{j0}}{(1 + V_R/V_0)^m}"></div><p>VR ↑ → width ↑ → capacitance ↓</p></div>
+      <div class="card"><h3>🎛️ VCO Application</h3><div class="math-block" data-formula="f = \frac{1}{2\pi\sqrt{LC}}"></div><p>Change VR → C changes → frequency f changes!</p></div>
+    </div>
+  </div>
+</div>
+
+<!-- SECTION 13 — FORWARD -->
+<div class="section" id="sec13">
+  <div class="section-header"><div class="section-icon icon-green">✅</div><h2>13. الانحياز الأمامي</h2><button class="section-lang-btn"><span class="swap-icon">🔄</span><span class="lang-text">EN</span></button><span class="toggle-arrow">▼</span></div>
+  <div class="section-body">
+    <div class="lang-ar">
+      <div class="card"><h3>📊 الانحياز الأمامي</h3><div class="diagram-container" id="diagram-forward-bias"></div><p>V_P > V_N ← النضوب <strong>بتتقلص</strong> ← التيار يمشي!</p></div>
+      <div class="card"><h3>الملخص</h3><div class="callout info"><strong>عند الوصلة:</strong> Diffusion (minority) مسيطر<br><strong>بعيد:</strong> Recombination (majority) مسيطر<br><strong>المجموع = ثابت!</strong></div></div>
+    </div>
+    <div class="lang-en">
+      <div class="card"><h3>📊 Forward Bias</h3><div class="diagram-container" id="diagram-forward-bias-en"></div><p>V_P > V_N → depletion <strong>shrinks</strong> → current flows!</p></div>
+      <div class="card"><h3>Summary</h3><div class="callout info"><strong>At junction:</strong> Diffusion current (minority carriers) dominates<br><strong>Far from junction:</strong> Recombination current (majority) dominates<br><strong>Total = constant everywhere!</strong></div></div>
+    </div>
+  </div>
+</div>
+
+<!-- SECTION 14 — IV -->
+<div class="section" id="sec14">
+  <div class="section-header"><div class="section-icon icon-cyan">📈</div><h2>14. منحنى IV</h2><button class="section-lang-btn"><span class="swap-icon">🔄</span><span class="lang-text">EN</span></button><span class="toggle-arrow">▼</span></div>
+  <div class="section-body">
+    <div class="lang-ar">
+      <div class="card"><h3>معادلة الدايود</h3><div class="math-block" data-formula="I = I_S \left(e^{\frac{V_D}{V_T}} - 1\right)"></div>
+        <p><span class="math-inline" data-formula="I_S \sim 10^{-15}"></span> A | <span class="math-inline" data-formula="V_T \approx 26"></span> mV</p></div>
+      <div class="card"><h3>📊 المنحنى</h3><div class="diagram-container" id="diagram-iv-curve"></div><p class="diagram-label">أسّي في الأمامي (بعد 0.7V) — ثابت في العكسي</p></div>
+    </div>
+    <div class="lang-en">
+      <div class="card"><h3>Diode Equation (Shockley)</h3><div class="math-block" data-formula="I = I_S \left(e^{\frac{V_D}{V_T}} - 1\right)"></div>
+        <p><span class="math-inline" data-formula="I_S \sim 10^{-15}"></span> A | <span class="math-inline" data-formula="V_T \approx 26"></span> mV @ 300K</p></div>
+      <div class="card"><h3>📊 IV Curve</h3><div class="diagram-container" id="diagram-iv-curve-en"></div><p class="diagram-label">Exponential in forward bias (after ~0.7V) — nearly flat in reverse</p></div>
+    </div>
+  </div>
+</div>
+
+<!-- SECTION 15 -->
+<div class="section" id="sec15">
+  <div class="section-header"><div class="section-icon icon-yellow">💡</div><h2>15. نموذج الجهد الثابت</h2><button class="section-lang-btn"><span class="swap-icon">🔄</span><span class="lang-text">EN</span></button><span class="toggle-arrow">▼</span></div>
+  <div class="section-body">
+    <div class="lang-ar">
+      <div class="card"><h3>التبسيط</h3><div class="callout success"><strong>VD &lt; 0.7V:</strong> دائرة مفتوحة (I=0)<br><strong>VD ≥ 0.7V:</strong> الدايود شغال (VD = 0.7V ثابت)</div></div>
+      <div class="card"><h3>مثال</h3><p>بطارية 5V + مقاومة 1kΩ + دايود:</p><div class="math-block" data-formula="V_R = 5 - 0.7 = 4.3\text{ V} \quad,\quad I = \frac{4.3}{1000} = 4.3\text{ mA}"></div></div>
+      <div class="quiz-box" data-explanation="VR = 3 - 0.7 = 2.3V → I = 2.3/1000 = 2.3 mA"><h4>🧠 اختبر:</h4><p style="color:var(--text-secondary);font-size:13px;margin-bottom:10px;">بطارية 3V + 1kΩ + دايود. كام التيار؟</p><button class="quiz-option" data-correct="true">2.3 mA</button><button class="quiz-option">3 mA</button><button class="quiz-option">0.7 mA</button><div class="quiz-feedback"></div></div>
+    </div>
+    <div class="lang-en">
+      <div class="card"><h3>Simplification</h3><div class="callout success"><strong>VD &lt; 0.7V:</strong> Open circuit (I=0)<br><strong>VD ≥ 0.7V:</strong> Diode ON (VD = 0.7V constant)</div></div>
+      <div class="card"><h3>Example</h3><p>5V battery + 1kΩ resistor + diode:</p><div class="math-block" data-formula="V_R = 5 - 0.7 = 4.3\text{ V} \quad,\quad I = \frac{4.3}{1000} = 4.3\text{ mA}"></div></div>
+      <div class="quiz-box" data-explanation="VR = 3 - 0.7 = 2.3V → I = 2.3/1000 = 2.3 mA"><h4>🧠 Test:</h4><p style="color:var(--text-secondary);font-size:13px;margin-bottom:10px;">3V battery + 1kΩ + diode. What is the current?</p><button class="quiz-option" data-correct="true">2.3 mA</button><button class="quiz-option">3 mA</button><button class="quiz-option">0.7 mA</button><div class="quiz-feedback"></div></div>
+    </div>
+  </div>
+</div>
+
+<!-- SUMMARY -->
+<div class="section" id="sec-summary">
+  <div class="section-header"><div class="section-icon icon-purple">📝</div><h2>ملخص نهائي + اختبار</h2><button class="section-lang-btn"><span class="swap-icon">🔄</span><span class="lang-text">EN</span></button><span class="toggle-arrow">▼</span></div>
+  <div class="section-body">
+    <div class="lang-ar">
+      <div class="card"><h3>أهم النقاط</h3><div class="summary-grid">
+        <div class="summary-item"><div class="label">Si</div><div class="value">4e تكافؤ</div></div>
+        <div class="summary-item"><div class="label">N-type</div><div class="value">Donor(5e) → e⁻ زيادة</div></div>
+        <div class="summary-item"><div class="label">P-type</div><div class="value">Acceptor(3e) → h⁺ زيادة</div></div>
+        <div class="summary-item"><div class="label">n×p</div><div class="value">= ni² ثابت!</div></div>
+        <div class="summary-item"><div class="label">Drift</div><div class="value">بسبب E</div></div>
+        <div class="summary-item"><div class="label">Diffusion</div><div class="value">عالي → منخفض</div></div>
+        <div class="summary-item"><div class="label">VT</div><div class="value">≈ 26mV</div></div>
+        <div class="summary-item"><div class="label">Depletion</div><div class="value">↑ عكسي | ↓ أمامي</div></div>
+      </div></div>
+      <div class="card"><h3>🔑 المعادلات</h3><div class="eq-grid">
+        <div class="eq-card"><div class="math-block" data-formula="n \cdot p = n_i^2" style="margin:0;border:0;padding:8px;background:transparent;"></div><div class="eq-label">حاصل الضرب</div></div>
+        <div class="eq-card"><div class="math-block" data-formula="J_{drift}=q(n\mu_n+p\mu_p)E" style="margin:0;border:0;padding:8px;background:transparent;"></div><div class="eq-label">تيار الانجراف</div></div>
+        <div class="eq-card"><div class="math-block" data-formula="J_{diff}=qD\frac{dn}{dx}" style="margin:0;border:0;padding:8px;background:transparent;"></div><div class="eq-label">تيار الانتشار</div></div>
+        <div class="eq-card"><div class="math-block" data-formula="\frac{D}{\mu}=V_T" style="margin:0;border:0;padding:8px;background:transparent;"></div><div class="eq-label">أينشتاين</div></div>
+        <div class="eq-card"><div class="math-block" data-formula="V_0=V_T\ln\frac{N_AN_D}{n_i^2}" style="margin:0;border:0;padding:8px;background:transparent;"></div><div class="eq-label">الجهد المدمج</div></div>
+        <div class="eq-card"><div class="math-block" data-formula="I=I_S(e^{V/V_T}-1)" style="margin:0;border:0;padding:8px;background:transparent;"></div><div class="eq-label">معادلة الدايود</div></div>
+      </div></div>
+      <div class="quiz-box" data-explanation="في الانحياز العكسي، منطقة النضوب بتتوسع!"><h4>🧠 سؤال أخير:</h4><p style="color:var(--text-secondary);font-size:13px;margin-bottom:10px;">في Reverse Bias، منطقة النضوب بتعمل إيه؟</p><button class="quiz-option" data-correct="true">بتتوسع</button><button class="quiz-option">بتتقلص</button><button class="quiz-option">بتختفي</button><div class="quiz-feedback"></div></div>
+      <div class="card"><div class="callout tip">💡 ركز على فهم الفرق بين N/P-type وإيه بيحصل في كل انحياز. بالتوفيق! 🚀</div></div>
+    </div>
+    <div class="lang-en">
+      <div class="card"><h3>Key Points</h3><div class="summary-grid">
+        <div class="summary-item"><div class="label">Si</div><div class="value">4 valence e⁻</div></div>
+        <div class="summary-item"><div class="label">N-type</div><div class="value">Donor(5e) → extra e⁻</div></div>
+        <div class="summary-item"><div class="label">P-type</div><div class="value">Acceptor(3e) → extra h⁺</div></div>
+        <div class="summary-item"><div class="label">n×p</div><div class="value">= ni² always!</div></div>
+        <div class="summary-item"><div class="label">Drift</div><div class="value">Due to E field</div></div>
+        <div class="summary-item"><div class="label">Diffusion</div><div class="value">High → Low conc.</div></div>
+        <div class="summary-item"><div class="label">VT</div><div class="value">≈ 26mV</div></div>
+        <div class="summary-item"><div class="label">Depletion</div><div class="value">↑ reverse | ↓ forward</div></div>
+      </div></div>
+      <div class="card"><h3>🔑 All Equations</h3><div class="eq-grid">
+        <div class="eq-card"><div class="math-block" data-formula="n \cdot p = n_i^2" style="margin:0;border:0;padding:8px;background:transparent;"></div><div class="eq-label">Mass action law</div></div>
+        <div class="eq-card"><div class="math-block" data-formula="J_{drift}=q(n\mu_n+p\mu_p)E" style="margin:0;border:0;padding:8px;background:transparent;"></div><div class="eq-label">Drift current</div></div>
+        <div class="eq-card"><div class="math-block" data-formula="J_{diff}=qD\frac{dn}{dx}" style="margin:0;border:0;padding:8px;background:transparent;"></div><div class="eq-label">Diffusion current</div></div>
+        <div class="eq-card"><div class="math-block" data-formula="\frac{D}{\mu}=V_T" style="margin:0;border:0;padding:8px;background:transparent;"></div><div class="eq-label">Einstein's relation</div></div>
+        <div class="eq-card"><div class="math-block" data-formula="V_0=V_T\ln\frac{N_AN_D}{n_i^2}" style="margin:0;border:0;padding:8px;background:transparent;"></div><div class="eq-label">Built-in potential</div></div>
+        <div class="eq-card"><div class="math-block" data-formula="I=I_S(e^{V/V_T}-1)" style="margin:0;border:0;padding:8px;background:transparent;"></div><div class="eq-label">Diode equation</div></div>
+      </div></div>
+      <div class="quiz-box" data-explanation="In reverse bias, the depletion region widens!"><h4>🧠 Final Quiz:</h4><p style="color:var(--text-secondary);font-size:13px;margin-bottom:10px;">In Reverse Bias, the depletion region:</p><button class="quiz-option" data-correct="true">Widens</button><button class="quiz-option">Shrinks</button><button class="quiz-option">Disappears</button><div class="quiz-feedback"></div></div>
+      <div class="card"><div class="callout tip">💡 Focus on understanding N/P-type differences and what happens in each bias mode. Good luck! 🚀</div></div>
+    </div>
+  </div>
+</div>
+
+</main>
+<script src="script.js"></script>
+</body>
+</html>
