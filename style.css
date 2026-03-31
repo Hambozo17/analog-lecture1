@@ -267,10 +267,10 @@ body {
 .section-header h2 {
   font-size: 18px;
   font-weight: 700;
+  flex: 1;
 }
 
 .toggle-arrow {
-  margin-right: auto;
   margin-left: 0;
   font-size: 14px;
   transition: transform .3s;
@@ -783,32 +783,33 @@ tr:hover td {
   }
 
   .section-header {
-    gap: 8px;
-    flex-wrap: wrap;
+    gap: 6px;
+    flex-wrap: nowrap;
   }
 
   .section-header h2 {
-    font-size: 15px;
+    font-size: 14px;
     flex: 1;
     min-width: 0;
+    line-height: 1.4;
   }
 
   .section-icon {
-    width: 34px;
-    height: 34px;
-    font-size: 15px;
+    width: 32px;
+    height: 32px;
+    font-size: 14px;
     border-radius: 8px;
   }
 
   .section-lang-btn {
-    padding: 3px 8px;
+    padding: 4px 8px;
     font-size: 10px;
-    order: 3;
+    margin-left: 6px;
   }
 
   .toggle-arrow {
     font-size: 12px;
-    order: 4;
+    margin-left: 4px;
   }
 
   .card {
@@ -1055,7 +1056,6 @@ tr:hover td {
   font-weight: 600;
   color: var(--text-secondary);
   transition: all .2s;
-  margin-right: auto;
   margin-left: 8px;
   flex-shrink: 0;
 }
