@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>الفصل 3 — دوائر الدايود | ECE314</title>
+  <meta name="description" content="ملخص تفاعلي شامل بالعربي للفصل الثالث - دوائر الدايود">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<button class="menu-toggle" aria-label="القائمة">☰</button>
+<div class="overlay"></div>
+
+<!-- ═══ SIDEBAR ═══ -->
+<aside class="sidebar">
+  <div class="sidebar-header">
+    <h2>⚡ ECE314 Analog</h2>
+    <p>Chapter 3 — Diode Circuits</p>
+  </div>
+  <div class="global-lang-toggle">
+    <span>اللغة:</span>
+    <div class="lang-switch">
+      <span class="lang-label ar-label">ع</span>
+      <span class="lang-label en-label">EN</span>
+    </div>
+  </div>
+  <div class="sidebar-progress">
+    <div class="progress-text"><span>التقدم</span><span class="progress-pct">0%</span></div>
+    <div class="progress-bar"><div class="progress-fill"></div></div>
+  </div>
+  <nav class="sidebar-nav">
+    <div class="nav-item active" data-target="sec1"><span class="nav-num">1</span>مقدمة الدايود</div>
+    <div class="nav-item" data-target="sec2"><span class="nav-num">2</span>شاحن الموبايل</div>
+    <div class="nav-item" data-target="sec3"><span class="nav-num">3</span>الدايود المثالي</div>
+    <div class="nav-item" data-target="sec4"><span class="nav-num">4</span>خصائص IV ⭐</div>
+    <div class="nav-item" data-target="sec5"><span class="nav-num">5</span>دايود على التوالي</div>
+    <div class="nav-item" data-target="sec6"><span class="nav-num">6</span>دايود عكس متوازي</div>
+    <div class="nav-item" data-target="sec7"><span class="nav-num">7</span>دايود + مقاومة</div>
+    <div class="nav-item" data-target="sec8"><span class="nav-num">8</span>بوابة OR</div>
+    <div class="nav-item" data-target="sec9"><span class="nav-num">9</span>I/O خصائص</div>
+    <div class="nav-item" data-target="sec10"><span class="nav-num">10</span>المقوّم ⭐</div>
+    <div class="nav-item" data-target="sec11"><span class="nav-num">11</span>المحدد (Limiter)</div>
+    <div class="nav-item" data-target="sec12"><span class="nav-num">12</span>نماذج الدايود</div>
+    <div class="nav-item" data-target="sec13"><span class="nav-num">13</span>نصف موجة ⭐</div>
+    <div class="nav-item" data-target="sec14"><span class="nav-num">14</span>دايود + مكثف</div>
+    <div class="nav-item" data-target="sec15"><span class="nav-num">15</span>موجة كاملة ⭐</div>
+    <div class="nav-item" data-target="sec16"><span class="nav-num">16</span>Bridge Rectifier</div>
+    <div class="nav-item" data-target="sec17"><span class="nav-num">17</span>دوائر التحديد</div>
+    <div class="nav-item" data-target="sec18"><span class="nav-num">18</span>محدد عام</div>
+    <div class="nav-item" data-target="sec-summary"><span class="nav-num">📝</span>ملخص + اختبار</div>
+  </nav>
+</aside>
+
+<!-- ═══ MAIN ═══ -->
+<main class="main">
+
+<div class="hero">
+  <h1>📗 الفصل 3 — دوائر الدايود</h1>
+  <p>مراجعة شاملة مع رسومات ومعادلات وأسئلة تفاعلية — اضغط 🔄 على أي قسم للتبديل بين العربي والإنجليزي.</p>
+  <div class="hero-chips">
+    <span class="chip">ECE314 Analog Circuits</span>
+    <span class="chip">Chapter 3</span>
+    <span class="chip">Dr. Rania F. Ahmed</span>
+    <span class="chip">🔄 AR ↔ EN per section</span>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════ -->
+<!-- SECTION 1 — Intro to Diode Circuits -->
+<!-- ══════════════════════════════════════════ -->
+<div class="section" id="sec1">
+  <div class="section-header">
+    <div class="section-icon icon-purple">🔌</div>
+    <h2>1. مقدمة: دوائر الدايود</h2>
+    <button class="section-lang-btn"><span class="swap-icon">🔄</span><span class="lang-text">EN</span></button>
+    <span class="toggle-arrow">▼</span>
+  </div>
+  <div class="section-body">
+    <div class="lang-ar">
+      <div class="card"><h3>الموضوعات</h3>
+        <ul>
+          <li>الدايود المثالي</li>
+          <li>وصلة PN كدايود</li>
+          <li>تطبيقات الدايود</li>
+          <li>المقوّمات (Rectifiers)</li>
+          <li>دوائر التحديد والتثبيت (Limiting & Clamping)</li>
+          <li>المنظمات (Regulators)</li>
+        </ul>
+        <div class="callout info">💡 بعد ما درسنا فيزياء الدايود بالتفصيل، حان الوقت ندرس سلوكه كعنصر في الدائرة وتطبيقاته الكتير.</div>
+      </div>
+    </div>
+    <div class="lang-en">
+      <div class="card"><h3>Topics Covered</h3>
+        <ul>
+          <li>Ideal Diode</li>
+          <li>PN Junction as a Diode</li>
+          <li>Applications of Diodes</li>
+          <li>Rectifiers</li>
+          <li>Limiting and Clamping Circuits</li>
+          <li>Regulators</li>
+        </ul>
+        <div class="callout info">💡 After studying diode physics in detail, it is time to study its behavior as a circuit element and its many applications.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SECTION 2 — Cell Phone Charger -->
+<div class="section" id="sec2">
+  <div class="section-header"><div class="section-icon icon-cyan">🔋</div><h2>2. تطبيق: شاحن الموبايل</h2><button class="section-lang-btn"><span class="swap-icon">🔄</span><span class="lang-text">EN</span></button><span class="toggle-arrow">▼</span></div>
+  <div class="section-body">
+    <div class="lang-ar">
+      <div class="card"><h3>الفكرة</h3>
+        <p>من أهم تطبيقات الدايود هو <strong>الشاحن</strong>.</p>
+        <p>الدايود يعمل كصندوق أسود (بعد المحول) يمرر فقط <strong>النصف الموجب</strong> من الموجة الجيبية المخفضة.</p>
+        <div class="callout tip">🔌 محول (Transformer) → دايود (يمرر نصف موجب فقط) → جهد مستمر تقريباً</div>
+      </div>
+    </div>
+    <div class="lang-en">
+      <div class="card"><h3>Concept</h3>
+        <p>An important application of the diode is <strong>chargers</strong>.</p>
+        <p>The diode acts as the black box (after transformer) that passes only the <strong>positive half</strong> of the stepped-down sinusoid.</p>
+        <div class="callout tip">🔌 Transformer → Diode (passes positive half only) → approximately DC voltage</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SECTION 3 — Ideal Diode -->
+<div class="section" id="sec3">
+  <div class="section-header"><div class="section-icon icon-green">💎</div><h2>3. الدايود المثالي</h2><button class="section-lang-btn"><span class="swap-icon">🔄</span><span class="lang-text">EN</span></button><span class="toggle-arrow">▼</span></div>
+  <div class="section-body">
+    <div class="lang-ar">
+      <div class="card"><h3>السلوك</h3>
+        <p>الدايود المثالي يشتغل كـ <strong>دائرة قصر (short circuit)</strong> خلال النصف الموجب (الجهد عليه يتجاوز الصفر)، ودائرة <strong>مفتوحة (open circuit)</strong> خلال النصف السالب.</p>
+        <div class="callout success">🔑 جهد > 0 → short → التيار يعدي | جهد < 0 → open → التيار = 0</div>
+      </div>
+      <div class="card"><h3>التشبيه</h3>
+        <p>زي <strong>ماسورة مية</strong> بتسمح للمية تعدي في اتجاه واحد بس!</p>
+      </div>
+      <div class="flashcard"><div class="flashcard-inner"><div class="flashcard-front"><h4>❓ الدايود المثالي لما الجهد عليه موجب بيعمل إيه؟</h4><p>(اضغط للإجابة)</p></div><div class="flashcard-back"><p><strong>دائرة قصر (Short Circuit)</strong> — المقاومة = صفر والتيار يعدي بحرية.</p></div></div></div>
+    </div>
+    <div class="lang-en">
+      <div class="card"><h3>Behavior</h3>
+        <p>The ideal diode behaves as a <strong>short circuit</strong> during the positive half cycle (voltage across it tends to exceed zero), and an <strong>open circuit</strong> during the negative half cycle (voltage across it is less than zero).</p>
+        <div class="callout success">🔑 V > 0 → short → current flows | V < 0 → open → I = 0</div>
+      </div>
+      <div class="card"><h3>Analogy</h3>
+        <p>It is analogous to a <strong>water pipe</strong> that allows water to flow in only one direction.</p>
+      </div>
+      <div class="flashcard"><div class="flashcard-inner"><div class="flashcard-front"><h4>❓ What does an ideal diode do when V > 0?</h4><p>(click to flip)</p></div><div class="flashcard-back"><p><strong>Short Circuit</strong> — resistance = zero and current flows freely.</p></div></div></div>
+    </div>
+  </div>
+</div>
+
+<!-- SECTION 4 — IV Characteristics -->
+<div class="section" id="sec4">
+  <div class="section-header"><div class="section-icon icon-yellow">📊</div><h2>4. خصائص IV للدايود المثالي</h2><button class="section-lang-btn"><span class="swap-icon">🔄</span><span class="lang-text">EN</span></button><span class="toggle-arrow">▼</span></div>
+  <div class="section-body">
+    <div class="lang-ar">
+      <div class="card"><h3>المنحنى</h3>
+        <div class="diagram-container" id="diagram-ideal-iv"></div>
+        <p>لو الجهد بين الأنود والكاثود <strong>أكبر من صفر</strong>: المقاومة = صفر والتيار يبقى لا نهائي.</p>
+        <p>لو الجهد <strong>أقل من صفر</strong>: المقاومة = لا نهاية والتيار = صفر.</p>
+      </div>
+    </div>
+    <div class="lang-en">
+      <div class="card"><h3>IV Curve</h3>
+        <div class="diagram-container" id="diagram-ideal-iv-en"></div>
+        <p>If the voltage across anode and cathode is <strong>greater than zero</strong>, the resistance is zero and current becomes infinite.</p>
+        <p>If the voltage is <strong>less than zero</strong>, the resistance becomes infinite and current is zero.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SECTION 5 — Diodes in Series -->
+<div class="section" id="sec5">
+  <div class="section-header"><div class="section-icon icon-red">🔗</div><h2>5. دايود على التوالي</h2><button class="section-lang-btn"><span class="swap-icon">🔄</span><span class="lang-text">EN</span></button><span class="toggle-arrow">▼</span></div>
+  <div class="section-body">
+    <div class="lang-ar">
+      <div class="card"><h3>القاعدة</h3>
+        <p>الدايودات <strong>مش ممكن توصلها على التوالي عشوائياً</strong>.</p>
+        <p>لازم يكونوا <strong>في نفس الاتجاه</strong> عشان التيار يعدي من A لـ C.</p>
+        <div class="callout warning">⚠️ لو دايود واحد بس معكوس في السلسلة، التيار مش هيعدي خالص!</div>
+      </div>
+    </div>
+    <div class="lang-en">
+      <div class="card"><h3>The Rule</h3>
+        <p>Diodes <strong>cannot be connected in series randomly</strong>.</p>
+        <p>They must be in the <strong>same direction</strong> for current to flow from A to C.</p>
+        <div class="callout warning">⚠️ If even one diode is reversed in the chain, no current will flow at all!</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SECTION 6 — Anti-Parallel -->
+<div class="section" id="sec6">
+  <div class="section-header"><div class="section-icon icon-pink">🔀</div><h2>6. دايود عكس متوازي</h2><button class="section-lang-btn"><span class="swap-icon">🔄</span><span class="lang-text">EN</span></button><span class="toggle-arrow">▼</span></div>
+  <div class="section-body">
+    <div class="lang-ar">
+      <div class="card"><h3>Anti-Parallel Diodes</h3>
+        <p>لو اتنين دايود متوصلين <strong>عكس متوازي</strong>، بيشتغلوا كـ <strong>short لكل الجهود</strong>.</p>
+        <div class="callout info">💡 واحد يوصل للموجب والتاني يوصل للسالب → دايماً فيه مسار!</div>
+      </div>
+    </div>
+    <div class="lang-en">
+      <div class="card"><h3>Anti-Parallel Diodes</h3>
+        <p>If two diodes are connected in <strong>anti-parallel</strong>, the combination acts as a <strong>short for all voltages</strong>.</p>
+        <div class="callout info">💡 One conducts for positive V, the other for negative V → always a path!</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SECTION 7 — Diode-Resistor -->
+<div class="section" id="sec7">
+  <div class="section-header"><div class="section-icon icon-cyan">⚡</div><h2>7. دايود + مقاومة</h2><button class="section-lang-btn"><span class="swap-icon">🔄</span><span class="lang-text">EN</span></button><span class="toggle-arrow">▼</span></div>
+  <div class="section-body">
+    <div class="lang-ar">
+      <div class="card"><h3>خصائص IV</h3>
+        <p>خصائص IV لمجموعة الدايود-مقاومة:</p>
+        <ul>
+          <li>للجهود السالبة: <strong>التيار = صفر</strong> (الدايود مفتوح)</li>
+          <li>للجهود الموجبة: <strong>قانون أوم</strong> (I = V/R)</li>
+        </ul>
+        <div class="callout success">🔑 الدايود بيحوّل الدائرة لـ "نص موصلة" — بتوصل في اتجاه واحد بس!</div>
+      </div>
+    </div>
+    <div class="lang-en">
+      <div class="card"><h3>IV Characteristics</h3>
+        <p>The IV characteristic of the diode-resistor combination:</p>
+        <ul>
+          <li>For negative voltages: <strong>I = 0</strong> (diode is open)</li>
+          <li>For positive voltages: <strong>Ohm's law</strong> (I = V/R)</li>
+        </ul>
+        <div class="callout success">🔑 The diode makes the circuit "half-conducting" — conducts in one direction only!</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SECTION 8 — OR Gate -->
+<div class="section" id="sec8">
+  <div class="section-header"><div class="section-icon icon-purple">🔲</div><h2>8. بوابة OR بالدايود</h2><button class="section-lang-btn"><span class="swap-icon">🔄</span><span class="lang-text">EN</span></button><span class="toggle-arrow">▼</span></div>
+  <div class="section-body">
+    <div class="lang-ar">
+      <div class="card"><h3>التنفيذ</h3>
+        <p>الدائرة بتنفذ بوابة <strong>OR</strong> باستخدام الدايود.</p>
+        <p>Vout ممكن تكون يا VA يا VB — <strong>مش الاتنين</strong>.</p>
+        <div class="callout info">💡 الدايود اللي عليه جهد أعلى هو اللي بيوصل!</div>
+      </div>
+    </div>
+    <div class="lang-en">
+      <div class="card"><h3>Implementation</h3>
+        <p>The circuit implements a diode-based <strong>OR gate</strong>.</p>
+        <p>Vout can only be either VA or VB — <strong>not both</strong>.</p>
+        <div class="callout info">💡 The diode with the higher voltage is the one that conducts!</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SECTION 9 — I/O Characteristics -->
+<div class="section" id="sec9">
+  <div class="section-header"><div class="section-icon icon-yellow">📈</div><h2>9. خصائص الدخل/الخرج</h2><button class="section-lang-btn"><span class="swap-icon">🔄</span><span class="lang-text">EN</span></button><span class="toggle-arrow">▼</span></div>
+  <div class="section-body">
+    <div class="lang-ar">
+      <div class="card"><h3>التحليل</h3>
+        <ul>
+          <li>لما <span class="math-inline" data-formula="V_{in} < 0"></span>: الدايود مفتوح → <strong>Vout = Vin</strong></li>
+          <li>لما <span class="math-inline" data-formula="V_{in} > 0"></span>: الدايود short → <strong>Vout = 0</strong></li>
+        </ul>
+      </div>
+      <div class="quiz-box" data-explanation="لما Vin > 0 الدايود يعمل short فـ Vout = 0."><h4>🧠 اختبر نفسك:</h4><p style="color:var(--text-secondary);font-size:13px;margin-bottom:10px;">لو Vin = 5V، كام Vout؟</p><button class="quiz-option" data-correct="true">0V</button><button class="quiz-option">5V</button><button class="quiz-option">-5V</button><div class="quiz-feedback"></div></div>
+    </div>
+    <div class="lang-en">
+      <div class="card"><h3>Analysis</h3>
+        <ul>
+          <li>When <span class="math-inline" data-formula="V_{in} < 0"></span>: diode opens → <strong>Vout = Vin</strong></li>
+          <li>When <span class="math-inline" data-formula="V_{in} > 0"></span>: diode shorts → <strong>Vout = 0</strong></li>
+        </ul>
+      </div>
+      <div class="quiz-box" data-explanation="When Vin > 0, the diode shorts, so Vout = 0."><h4>🧠 Test Yourself:</h4><p style="color:var(--text-secondary);font-size:13px;margin-bottom:10px;">If Vin = 5V, what is Vout?</p><button class="quiz-option" data-correct="true">0V</button><button class="quiz-option">5V</button><button class="quiz-option">-5V</button><div class="quiz-feedback"></div></div>
+    </div>
+  </div>
+</div>
+
+<!-- SECTION 10 — Rectifier -->
+<div class="section" id="sec10">
+  <div class="section-header"><div class="section-icon icon-green">⭐</div><h2>10. المقوّم (Rectifier)</h2><button class="section-lang-btn"><span class="swap-icon">🔄</span><span class="lang-text">EN</span></button><span class="toggle-arrow">▼</span></div>
+  <div class="section-body">
+    <div class="lang-ar">
+      <div class="card"><h3>التعريف</h3>
+        <p>المقوّم = جهاز بيمرر <strong>النصف الموجب</strong> من الموجة الجيبية ويحجب <strong>النصف السالب</strong> أو العكس.</p>
+        <div class="diagram-container" id="diagram-rectifier"></div>
+      </div>
+      <div class="card"><h3>التحليل</h3>
+        <ul>
+          <li>لما <span class="math-inline" data-formula="V_{in} > 0"></span>: الدايود short → <strong>Vout = Vin</strong></li>
+          <li>لما <span class="math-inline" data-formula="V_{in} < 0"></span>: الدايود open → لا تيار يمر في R1 → <strong>Vout = 0</strong></li>
+        </ul>
+      </div>
+    </div>
+    <div class="lang-en">
+      <div class="card"><h3>Definition</h3>
+        <p>A rectifier passes the <strong>positive half cycle</strong> of a sinusoid and blocks the <strong>negative half cycle</strong> or vice versa.</p>
+        <div class="diagram-container" id="diagram-rectifier-en"></div>
+      </div>
+      <div class="card"><h3>Analysis</h3>
+        <ul>
+          <li>When <span class="math-inline" data-formula="V_{in} > 0"></span>: diode shorts → <strong>Vout = Vin</strong></li>
+          <li>When <span class="math-inline" data-formula="V_{in} < 0"></span>: diode opens, no current through R1 → <strong>Vout = 0</strong></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SECTION 11 — Limiter -->
+<div class="section" id="sec11">
+  <div class="section-header"><div class="section-icon icon-red">✂️</div><h2>11. المحدد (Limiter)</h2><button class="section-lang-btn"><span class="swap-icon">🔄</span><span class="lang-text">EN</span></button><span class="toggle-arrow">▼</span></div>
+  <div class="section-body">
+    <div class="lang-ar">
+      <div class="card"><h3>الغرض</h3>
+        <p>المحدد بيخلّي الخرج يفضل <strong>تحت قيمة معينة</strong>.</p>
+        <p>إضافة بطارية 1V بتخلّي الدايود يشتغل بعد ما V1 يبقى <strong>أكبر من 1V</strong>.</p>
+        <div class="callout warning">⚠️ المحدد مهم عشان يمنع الإشارة من إنها تشبّع الدائرة!</div>
+      </div>
+    </div>
+    <div class="lang-en">
+      <div class="card"><h3>Purpose</h3>
+        <p>A limiter forces the output to remain <strong>below a certain value</strong>.</p>
+        <p>The addition of a 1V battery forces the diode to turn on after V1 has become <strong>greater than 1V</strong>.</p>
+        <div class="callout warning">⚠️ Limiters are crucial to prevent signal saturation of the circuit!</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SECTION 12 — Diode Models -->
+<div class="section" id="sec12">
+  <div class="section-header"><div class="section-icon icon-pink">📐</div><h2>12. نماذج الدايود</h2><button class="section-lang-btn"><span class="swap-icon">🔄</span><span class="lang-text">EN</span></button><span class="toggle-arrow">▼</span></div>
+  <div class="section-body">
+    <div class="lang-ar">
+      <div class="card"><h3>ثلاثة نماذج</h3>
+        <div class="table-wrap"><table><thead><tr><th>النموذج</th><th>الوصف</th><th>VD عند التوصيل</th></tr></thead><tbody>
+          <tr><td><strong>مثالي</strong></td><td>short/open بسيط</td><td>0V</td></tr>
+          <tr><td><strong>جهد ثابت</strong></td><td>يحسب VD,on</td><td>≈ 0.7V</td></tr>
+          <tr><td><strong>أسّي</strong></td><td>المعادلة الكاملة</td><td><span class="math-inline" data-formula="V_T \ln(I/I_S)"></span></td></tr>
+        </tbody></table></div>
+      </div>
+      <div class="card"><h3>الفرق العملي</h3>
+        <p>النموذج المثالي ونموذج الجهد الثابت <strong>بيدوا نقاط انكسار مختلفة</strong> في منحنى الدخل/الخرج.</p>
+        <div class="callout info">💡 نموذج الجهد الثابت: هبوط الجهد على الدايود = <strong>Vd,on</strong> (مش صفر) لما يوصل.</div>
+      </div>
+    </div>
+    <div class="lang-en">
+      <div class="card"><h3>Three Models</h3>
+        <div class="table-wrap"><table><thead><tr><th>Model</th><th>Description</th><th>VD when ON</th></tr></thead><tbody>
+          <tr><td><strong>Ideal</strong></td><td>Simple short/open</td><td>0V</td></tr>
+          <tr><td><strong>Constant-Voltage</strong></td><td>Accounts for VD,on</td><td>≈ 0.7V</td></tr>
+          <tr><td><strong>Exponential</strong></td><td>Full equation</td><td><span class="math-inline" data-formula="V_T \ln(I/I_S)"></span></td></tr>
+        </tbody></table></div>
+      </div>
+      <div class="card"><h3>Practical Difference</h3>
+        <p>The ideal and constant-voltage models yield <strong>two different break points</strong> of slope in the I/O characteristic.</p>
+        <div class="callout info">💡 Constant-voltage model: voltage drop across diode = <strong>Vd,on</strong> (not zero) when conducting.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SECTION 13 — Half-Wave Rectifier -->
+<div class="section" id="sec13">
+  <div class="section-header"><div class="section-icon icon-green">⭐</div><h2>13. مقوّم نصف موجة</h2><button class="section-lang-btn"><span class="swap-icon">🔄</span><span class="lang-text">EN</span></button><span class="toggle-arrow">▼</span></div>
+  <div class="section-body">
+    <div class="lang-ar">
+      <div class="card"><h3>الوصف</h3>
+        <p>من أشهر تطبيقات الدايود — <strong>تقويم نصف الموجة</strong>: نحجب النصف الموجب أو السالب من الدخل.</p>
+        <div class="diagram-container" id="diagram-half-wave"></div>
+        <div class="callout tip">❓ بس إزاي نجيب خرج ثابت (DC)؟ → نحتاج <strong>مكثف!</strong></div>
+      </div>
+    </div>
+    <div class="lang-en">
+      <div class="card"><h3>Description</h3>
+        <p>A very common application — <strong>half-wave rectification</strong>: either the positive or negative half of the input is blocked.</p>
+        <div class="diagram-container" id="diagram-half-wave-en"></div>
+        <div class="callout tip">❓ But how do we generate a constant output? → We need a <strong>capacitor!</strong></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SECTION 14 — Diode-Capacitor -->
+<div class="section" id="sec14">
+  <div class="section-header"><div class="section-icon icon-cyan">🔋</div><h2>14. دايود + مكثف</h2><button class="section-lang-btn"><span class="swap-icon">🔄</span><span class="lang-text">EN</span></button><span class="toggle-arrow">▼</span></div>
+  <div class="section-body">
+    <div class="lang-ar">
+      <div class="card"><h3>بدون مقاومة حمل</h3>
+        <p>لو استبدلنا المقاومة بـ <strong>مكثف</strong>، نحصل على <strong>جهد خرج ثابت</strong> — المكثف (المثالي) مالوش مسار تفريغ.</p>
+      </div>
+      <div class="card"><h3>مع مقاومة حمل</h3>
+        <p>لما نضيف مقاومة حمل، المكثف بيفرّغ → <strong>Vout مش ثابت</strong> وبيظهر <strong>تموج (Ripple)</strong>.</p>
+        <div class="callout success">🔑 مكثف أكبر (C كبير) → تموج أقل → خرج أنعم!</div>
+      </div>
+    </div>
+    <div class="lang-en">
+      <div class="card"><h3>Without Load Resistor</h3>
+        <p>If the resistor is replaced by a <strong>capacitor</strong>, a <strong>fixed voltage output</strong> is obtained since the ideal capacitor has no path to discharge.</p>
+      </div>
+      <div class="card"><h3>With Load Resistor</h3>
+        <p>When a load resistor is added, the capacitor discharges → <strong>Vout is not constant</strong> and a <strong>ripple</strong> exists.</p>
+        <div class="callout success">🔑 Larger C → smaller ripple → smoother output!</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SECTION 15 — Full-Wave Rectifier -->
+<div class="section" id="sec15">
+  <div class="section-header"><div class="section-icon icon-purple">⭐</div><h2>15. مقوّم موجة كاملة</h2><button class="section-lang-btn"><span class="swap-icon">🔄</span><span class="lang-text">EN</span></button><span class="toggle-arrow">▼</span></div>
+  <div class="section-body">
+    <div class="lang-ar">
+      <div class="card"><h3>المبدأ</h3>
+        <p>المقوّم الكامل بيمرر <strong>النصفين الموجب والسالب</strong>، مع عكس النصف السالب.</p>
+        <div class="callout success">🔑 التموج (Ripple) بينخفض <strong>للنصف</strong> مقارنة بنصف الموجة!</div>
+      </div>
+      <div class="card"><h3>📊 المقارنة</h3>
+        <div class="diagram-container" id="diagram-full-wave"></div>
+      </div>
+    </div>
+    <div class="lang-en">
+      <div class="card"><h3>Principle</h3>
+        <p>A full-wave rectifier passes <strong>both halves</strong> of the input, while inverting the negative half.</p>
+        <div class="callout success">🔑 Ripple is reduced by a <strong>factor of two</strong> compared to half-wave!</div>
+      </div>
+      <div class="card"><h3>📊 Comparison</h3>
+        <div class="diagram-container" id="diagram-full-wave-en"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SECTION 16 — Bridge Rectifier -->
+<div class="section" id="sec16">
+  <div class="section-header"><div class="section-icon icon-yellow">🌉</div><h2>16. Bridge Rectifier</h2><button class="section-lang-btn"><span class="swap-icon">🔄</span><span class="lang-text">EN</span></button><span class="toggle-arrow">▼</span></div>
+  <div class="section-body">
+    <div class="lang-ar">
+      <div class="card"><h3>التركيب</h3>
+        <p><strong>D1 و D2</strong> بيمرروا/يعكسوا النصف السالب | <strong>D3 و D4</strong> بيمرروا النصف الموجب.</p>
+        <div class="diagram-container" id="diagram-bridge"></div>
+      </div>
+      <div class="card"><h3>منطقة ميتة</h3>
+        <p>الـ dead-zone حوالين Vin بتظهر لأن Vin لازم يتجاوز <strong>2 VD,ON</strong> عشان يشغل البريدج.</p>
+        <div class="math-block" data-formula="V_{out} = V_{in} - 2V_{D,ON}"></div>
+      </div>
+      <div class="card"><h3>التموج</h3>
+        <p>المكثف بيفرّغ في <strong>نص الدورة فقط</strong> → التموج بينخفض <strong>للنصف</strong>.</p>
+        <p>كل دايود بيتعرض لـ <strong>هبوط عكسي واحد تقريباً</strong> (مقابل 2Vp في نصف الموجة).</p>
+      </div>
+      <div class="quiz-box" data-explanation="المقوّم الكامل بيقلل التموج للنصف لأن المكثف بيفرغ لنص الدورة فقط."><h4>🧠 اختبر نفسك:</h4><p style="color:var(--text-secondary);font-size:13px;margin-bottom:10px;">المقوّم الكامل بيقلل التموج بعامل كام مقارنة بنصف الموجة؟</p><button class="quiz-option" data-correct="true">2</button><button class="quiz-option">4</button><button class="quiz-option">3</button><div class="quiz-feedback"></div></div>
+    </div>
+    <div class="lang-en">
+      <div class="card"><h3>Structure</h3>
+        <p><strong>D1 & D2</strong> pass/invert the negative half cycle | <strong>D3 & D4</strong> pass the positive half cycle.</p>
+        <div class="diagram-container" id="diagram-bridge-en"></div>
+      </div>
+      <div class="card"><h3>Dead Zone</h3>
+        <p>The dead-zone around Vin arises because Vin must exceed <strong>2 VD,ON</strong> to turn on the bridge.</p>
+        <div class="math-block" data-formula="V_{out} = V_{in} - 2V_{D,ON}"></div>
+      </div>
+      <div class="card"><h3>Ripple</h3>
+        <p>C1 only gets <strong>1/2 of the period</strong> to discharge → ripple is <strong>halved</strong>.</p>
+        <p>Each diode is subjected to approximately <strong>one reverse bias drop</strong> (versus 2Vp in half-wave).</p>
+      </div>
+      <div class="quiz-box" data-explanation="Full-wave reduces ripple by factor of 2 since the capacitor discharges for only half the period."><h4>🧠 Test Yourself:</h4><p style="color:var(--text-secondary);font-size:13px;margin-bottom:10px;">Full-wave reduces ripple by what factor compared to half-wave?</p><button class="quiz-option" data-correct="true">2</button><button class="quiz-option">4</button><button class="quiz-option">3</button><div class="quiz-feedback"></div></div>
+    </div>
+  </div>
+</div>
+
+<!-- SECTION 17 — Limiting Circuits -->
+<div class="section" id="sec17">
+  <div class="section-header"><div class="section-icon icon-red">📡</div><h2>17. دوائر التحديد</h2><button class="section-lang-btn"><span class="swap-icon">🔄</span><span class="lang-text">EN</span></button><span class="toggle-arrow">▼</span></div>
+  <div class="section-body">
+    <div class="lang-ar">
+      <div class="card"><h3>الدافع</h3>
+        <p>الهدف: <strong>نخلّي الإشارة تحت عتبة معينة</strong> عشان ما تشبعش الدائرة.</p>
+        <p>لما المستقبل قريب من المحطة، الإشارات بتكون <strong>كبيرة</strong> → نحتاج دوائر تحديد.</p>
+      </div>
+      <div class="card"><h3>الأنواع</h3>
+        <div class="table-wrap"><table><thead><tr><th>النوع</th><th>الوصف</th></tr></thead><tbody>
+          <tr><td>قطع موجب</td><td>يقطع النصف الموجب</td></tr>
+          <tr><td>قطع سالب</td><td>يقطع النصف السالب</td></tr>
+          <tr><td>قطع مزدوج</td><td>يقطع الاتنين</td></tr>
+        </tbody></table></div>
+      </div>
+    </div>
+    <div class="lang-en">
+      <div class="card"><h3>Motivation</h3>
+        <p>Goal: keep the signal <strong>below a threshold</strong> so it won't saturate the circuitry.</p>
+        <p>When a receiver is close to a base station, signals are <strong>large</strong> → limiting circuits may be required.</p>
+      </div>
+      <div class="card"><h3>Types</h3>
+        <div class="table-wrap"><table><thead><tr><th>Type</th><th>Description</th></tr></thead><tbody>
+          <tr><td>Positive Clipping</td><td>Clips the positive half</td></tr>
+          <tr><td>Negative Clipping</td><td>Clips the negative half</td></tr>
+          <tr><td>Double Clipping</td><td>Clips both halves</td></tr>
+        </tbody></table></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SECTION 18 — General Voltage Limiter -->
+<div class="section" id="sec18">
+  <div class="section-header"><div class="section-icon icon-green">🔧</div><h2>18. محدد الجهد العام</h2><button class="section-lang-btn"><span class="swap-icon">🔄</span><span class="lang-text">EN</span></button><span class="toggle-arrow">▼</span></div>
+  <div class="section-body">
+    <div class="lang-ar">
+      <div class="card"><h3>التصميم</h3>
+        <p><strong>بطاريتين على التوالي</strong> مع دايودات عكس متوازي بيتحكموا في جهود التحديد.</p>
+        <div class="callout success">🔑 بتغيير قيم البطاريات، نقدر نتحكم في مستوى القطع الموجب والسالب بشكل مستقل!</div>
+      </div>
+    </div>
+    <div class="lang-en">
+      <div class="card"><h3>Design</h3>
+        <p><strong>Two batteries in series</strong> with antiparallel diodes control the limiting voltages.</p>
+        <div class="callout success">🔑 By changing battery values, we can independently control both positive and negative clipping levels!</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SUMMARY -->
+<div class="section" id="sec-summary">
+  <div class="section-header"><div class="section-icon icon-purple">📝</div><h2>ملخص نهائي + اختبار</h2><button class="section-lang-btn"><span class="swap-icon">🔄</span><span class="lang-text">EN</span></button><span class="toggle-arrow">▼</span></div>
+  <div class="section-body">
+    <div class="lang-ar">
+      <div class="card"><h3>أهم النقاط</h3><div class="summary-grid">
+        <div class="summary-item"><div class="label">الدايود المثالي</div><div class="value">short (V>0) | open (V<0)</div></div>
+        <div class="summary-item"><div class="label">نصف موجة</div><div class="value">يمرر نصف واحد</div></div>
+        <div class="summary-item"><div class="label">موجة كاملة</div><div class="value">يمرر النصفين</div></div>
+        <div class="summary-item"><div class="label">Bridge</div><div class="value">4 دايودات</div></div>
+        <div class="summary-item"><div class="label">Ripple كاملة</div><div class="value">½ × نصف موجة</div></div>
+        <div class="summary-item"><div class="label">Dead Zone</div><div class="value">Vin > 2VD,ON</div></div>
+        <div class="summary-item"><div class="label">Limiter</div><div class="value">يحد الخرج</div></div>
+        <div class="summary-item"><div class="label">مكثف أكبر</div><div class="value">تموج أقل</div></div>
+      </div></div>
+      <div class="card"><h3>🔑 المعادلات</h3><div class="eq-grid">
+        <div class="eq-card"><div class="math-block" data-formula="I = I_S(e^{V/V_T}-1)" style="margin:0;border:0;padding:8px;background:transparent;"></div><div class="eq-label">معادلة الدايود</div></div>
+        <div class="eq-card"><div class="math-block" data-formula="V_{out} = V_{in} - 2V_{D,ON}" style="margin:0;border:0;padding:8px;background:transparent;"></div><div class="eq-label">Bridge Rectifier</div></div>
+        <div class="eq-card"><div class="math-block" data-formula="V_{ripple} \propto \frac{1}{fRC}" style="margin:0;border:0;padding:8px;background:transparent;"></div><div class="eq-label">التموج</div></div>
+        <div class="eq-card"><div class="math-block" data-formula="V_{out,FW} = V_p - 2V_{D,ON}" style="margin:0;border:0;padding:8px;background:transparent;"></div><div class="eq-label">Full-Wave Peak</div></div>
+      </div></div>
+      <div class="quiz-box" data-explanation="المقوّم الكامل أنسب لتطبيقات الشاحن لأن التموج أقل والكفاءة أعلى."><h4>🧠 سؤال أخير:</h4><p style="color:var(--text-secondary);font-size:13px;margin-bottom:10px;">أي مقوّم أنسب للشواحن والمحولات؟</p><button class="quiz-option" data-correct="true">موجة كاملة (Full-Wave)</button><button class="quiz-option">نصف موجة (Half-Wave)</button><button class="quiz-option">بدون مقوّم</button><div class="quiz-feedback"></div></div>
+      <div class="card"><div class="callout tip">💡 ركز على الفرق بين نصف الموجة والموجة الكاملة، ومتى نستخدم كل نموذج. بالتوفيق! 🚀</div></div>
+    </div>
+    <div class="lang-en">
+      <div class="card"><h3>Key Points</h3><div class="summary-grid">
+        <div class="summary-item"><div class="label">Ideal Diode</div><div class="value">short (V>0) | open (V<0)</div></div>
+        <div class="summary-item"><div class="label">Half-Wave</div><div class="value">Passes one half</div></div>
+        <div class="summary-item"><div class="label">Full-Wave</div><div class="value">Passes both halves</div></div>
+        <div class="summary-item"><div class="label">Bridge</div><div class="value">4 diodes</div></div>
+        <div class="summary-item"><div class="label">FW Ripple</div><div class="value">½ × half-wave</div></div>
+        <div class="summary-item"><div class="label">Dead Zone</div><div class="value">Vin > 2VD,ON</div></div>
+        <div class="summary-item"><div class="label">Limiter</div><div class="value">Caps the output</div></div>
+        <div class="summary-item"><div class="label">Larger C</div><div class="value">Smaller ripple</div></div>
+      </div></div>
+      <div class="card"><h3>🔑 All Equations</h3><div class="eq-grid">
+        <div class="eq-card"><div class="math-block" data-formula="I = I_S(e^{V/V_T}-1)" style="margin:0;border:0;padding:8px;background:transparent;"></div><div class="eq-label">Diode equation</div></div>
+        <div class="eq-card"><div class="math-block" data-formula="V_{out} = V_{in} - 2V_{D,ON}" style="margin:0;border:0;padding:8px;background:transparent;"></div><div class="eq-label">Bridge Rectifier</div></div>
+        <div class="eq-card"><div class="math-block" data-formula="V_{ripple} \propto \frac{1}{fRC}" style="margin:0;border:0;padding:8px;background:transparent;"></div><div class="eq-label">Ripple voltage</div></div>
+        <div class="eq-card"><div class="math-block" data-formula="V_{out,FW} = V_p - 2V_{D,ON}" style="margin:0;border:0;padding:8px;background:transparent;"></div><div class="eq-label">Full-Wave Peak</div></div>
+      </div></div>
+      <div class="quiz-box" data-explanation="Full-wave rectifier is more suited for adapter and charger applications due to lower ripple."><h4>🧠 Final Quiz:</h4><p style="color:var(--text-secondary);font-size:13px;margin-bottom:10px;">Which rectifier is best suited for chargers and adapters?</p><button class="quiz-option" data-correct="true">Full-Wave</button><button class="quiz-option">Half-Wave</button><button class="quiz-option">No rectifier</button><div class="quiz-feedback"></div></div>
+      <div class="card"><div class="callout tip">💡 Focus on understanding the difference between half-wave and full-wave, and when to use each model. Good luck! 🚀</div></div>
+    </div>
+  </div>
+</div>
+
+</main>
+<script src="chapter3.js"></script>
+</body>
+</html>

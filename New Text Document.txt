@@ -1,0 +1,188 @@
+
+**Slide 5: Semiconductor Physics**
+*   CH2 Basic Physics of Semiconductors
+*   Semiconductor devices serve as heart of microelectronics.
+*   PN junction is the most fundamental semiconductor device.
+
+**Slide 6: Charge Carriers in Semiconductor - Periodic Table**
+*   CH2 Basic Physics of Semiconductors
+*   Periodic Table
+*   This abridged table contains elements with three to five valence electrons, with Si being the most important.
+
+**Slide 7: Silicon**
+*   CH2 Basic Physics of Semiconductors
+*   Silicon
+*   Si has four valence electrons. Therefore, it can form covalent bonds with four of its neighbors.
+*   When temperature goes up, electrons in the covalent bond can become free.
+
+**Slide 8: Electron-Hole Pair Interaction**
+*   CH2 Basic Physics of Semiconductors
+*   Electron-Hole Pair Interaction
+*   With free electrons breaking off covalent bonds, holes are generated.
+*   Holes can be filled by absorbing other free electrons, so effectively there is a flow of charge carriers.
+
+**Slide 9: Free Electron Density at a Given Temperature**
+*   CH2 Basic Physics of Semiconductors
+*   Free Electron Density at a Given Temperature
+*   Eg, or bandgap energy determines how much effort is needed to break off an electron from its covalent bond.
+*   There exists an exponential relationship between the free-electron density and bandgap energy.
+
+**Slide 10: Doping (N type)**
+*   CH2 Basic Physics of Semiconductors
+*   Doping (N type)
+*   Pure Si can be doped with other elements to change its electrical properties.
+*   For example, if Si is doped with P (phosphorous), then it has more electrons, or becomes type N (electron).
+
+**Slide 11: Doping (P type)**
+*   CH2 Basic Physics of Semiconductors
+*   Doping (P type)
+*   If Si is doped with B (boron), then it has more holes, or becomes type P.
+
+**Slide 12: Summary of Charge Carriers**
+*   CH2 Basic Physics of Semiconductors
+*   Summary of Charge Carriers
+*   *(Note: The slide contains a title but the text implies an image/table is shown here)*
+
+**Slide 13: Electron and Hole Densities**
+*   CH2 Basic Physics of Semiconductors
+*   Electron and Hole Densities
+*   The product of electron and hole densities is ALWAYS equal to the square of intrinsic electron density regardless of doping levels.
+*   Majority Carriers : Minority Carriers : Majority Carriers : Minority Carriers :
+
+**Slide 14: First Charge Transportation Mechanism: Drift**
+*   CH2 Basic Physics of Semiconductors
+*   First Charge Transportation Mechanism: Drift
+*   The process in which charge particles move because of an electric field is called drift.
+*   Charge particles will move at a velocity that is proportional to the electric field.
+
+**Slide 15: Current Flow: General Case**
+*   CH2 Basic Physics of Semiconductors
+*   Current Flow: General Case
+*   Electric current is calculated as the amount of charge in v meters that passes thru a cross-section if the charge travel with a velocity of v m/s.
+
+**Slide 16: Current Flow: Drift**
+*   CH2 Basic Physics of Semiconductors
+*   Current Flow: Drift
+
+**Slide 17: Second Charge Transportation Mechanism: Diffusion**
+*   CH2 Basic Physics of Semiconductors
+*   Second Charge Transportation Mechanism: Diffusion
+*   Charge particles move from a region of high concentration to a region of low concentration.
+*   It is analogous to an every day example of an ink droplet in water.
+
+**Slide 18: Current Flow: Diffusion**
+*   CH2 Basic Physics of Semiconductors
+*   Current Flow: Diffusion
+*   Diffusion current is proportional to the gradient of charge (dn/dx) along the direction of current flow.
+*   Its total current density consists of both electrons and holes.
+
+**Slide 19: Example: Linear vs. Nonlinear Charge Density Profile**
+*   CH2 Basic Physics of Semiconductors
+*   Example: Linear vs. Nonlinear Charge Density Profile
+*   Linear charge density profile means constant diffusion current, whereas nonlinear charge density profile means varying diffusion current.
+
+**Slide 20: Einstein's Relation**
+*   CH2 Basic Physics of Semiconductors
+*   Einstein's Relation
+
+**Slide 21: PN Junction (Diode)**
+*   CH2 Basic Physics of Semiconductors
+*   PN Junction (Diode)
+*   When N-type and P-type dopants are introduced side-by-side in a semiconductor, a PN junction or a diode is formed.
+
+**Slide 22: Diode's Three Operation Regions**
+*   CH2 Basic Physics of Semiconductors
+*   In order to understand the operation of a diode, it is necessary to study its three operation regions: equilibrium, reverse bias, and forward bias.
+
+**Slide 23: Current Flow Across Junction: Diffusion**
+*   CH2 Basic Physics of Semiconductors
+*   Current Flow Across Junction: Diffusion
+*   Because each side of the junction contains an excess of holes or electrons compared to the other side, there exists a large concentration gradient.
+*   Therefore, a diffusion current flows across the junction from each side.
+
+**Slide 24: Depletion Region**
+*   CH2 Basic Physics of Semiconductors
+*   Depletion Region
+
+**Slide 25: Current Flow Across Junction: Drift**
+*   CH2 Basic Physics of Semiconductors
+*   Current Flow Across Junction: Drift
+*   The fixed ions in depletion region create an electric field that results in a drift current.
+
+**Slide 26: Current Flow Across Junction: Equilibrium**
+*   CH2 Basic Physics of Semiconductors
+*   Current Flow Across Junction: Equilibrium
+*   At equilibrium, the drift current flowing in one direction cancels out the diffusion current flowing in the opposite direction, creating a net current of zero.
+*   The figure shows the charge profile of the PN junction.
+
+**Slide 27: Built-in Potential**
+*   CH2 Basic Physics of Semiconductors
+*   Built-in Potential
+*   Because of the electric field across the junction, there exists a built-in potential.
+*   Its derivation is shown above.
+
+**Slide 28: Diode in Reverse Bias**
+*   CH2 Basic Physics of Semiconductors
+*   Diode in Reverse Bias
+*   When the N-type region of a diode is connected to a higher potential than the P-type region, the diode is under reverse bias, which results in wider depletion region and larger built-in electric field across the junction.
+
+**Slide 29: Reverse Biased Diode's Application: Voltage-Dependent Capacitor**
+*   CH2 Basic Physics of Semiconductors
+*   The PN junction can be viewed as a capacitor.
+*   By varying VR, the depletion width changes, changing its capacitance value; therefore, the PN junction is actually a voltage-dependent capacitor.
+
+**Slide 30: Voltage-Dependent Capacitance**
+*   CH2 Basic Physics of Semiconductors
+*   Voltage-Dependent Capacitance
+*   The equations that describe the voltage-dependent capacitance are shown above.
+
+**Slide 31: Voltage-Controlled Oscillator**
+*   CH2 Basic Physics of Semiconductors
+*   Voltage-Controlled Oscillator
+*   A very important application of a reverse-biased PN junction is VCO, in which an LC tank is used in an oscillator.
+*   By changing VR, we can change C, which also changes the oscillation frequency.
+
+**Slide 32: Diode in Forward Bias**
+*   CH2 Basic Physics of Semiconductors
+*   Diode in Forward Bias
+*   When the N-type region of a diode is at a lower potential than the P-type region, the diode is in forward bias.
+*   The depletion width is shortened and the built-in electric field decreased.
+
+**Slide 33: Diffusion Current in Forward Bias**
+*   CH2 Basic Physics of Semiconductors
+*   Diffusion Current in Forward Bias
+*   Diffusion current will increase in order to supply the increase in minority carriers.
+*   The mathematics are shown above.
+
+**Slide 34: Minority Charge Gradient**
+*   CH2 Basic Physics of Semiconductors
+*   Minority Charge Gradient
+*   Minority charge profile should not be constant along the x-axis; otherwise, there is no concentration gradient and no diffusion current.
+*   Recombination of the minority carriers with the majority carriers accounts for the dropping of minority carriers as they go deep into the P or N region.
+
+**Slide 35: Forward Bias Condition: Summary**
+*   CH2 Basic Physics of Semiconductors
+*   Forward Bias Condition: Summary
+*   In forward bias, there are large diffusion currents of minority carriers through the junction.
+*   However, as we go deep into the P and N regions, recombination currents from the majority carriers dominate.
+*   These two currents add up to a constant value.
+
+**Slide 36: IV Characteristic of PN Junction**
+*   CH2 Basic Physics of Semiconductors
+*   IV Characteristic of PN Junction
+*   The current and voltage relationship of a PN junction is exponential in forward bias region, and relatively constant in reverse bias region.
+
+**Slide 37: Parallel PN Junctions**
+*   CH2 Basic Physics of Semiconductors
+*   Parallel PN Junctions
+
+**Slide 38: Constant-Voltage Diode Model**
+*   CH2 Basic Physics of Semiconductors
+*   Constant-Voltage Diode Model
+*   Diode operates as an open circuit if VD< VD,on and a constant voltage source of VD,on if VD tends to exceed VD,on.
+
+**Slide 39: Example: Diode Calculations**
+*   CH2 Basic Physics of Semiconductors
+*   Example: Diode Calculations
+*   This example shows the simplicity provided by a constant-voltage model over an exponential model.
+*   For an exponential model, iterative method is needed to solve for current, whereas constant-voltage model requires only linear equations.
